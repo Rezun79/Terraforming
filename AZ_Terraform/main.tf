@@ -14,8 +14,12 @@ resource "azurerm_resource_group" "rg1" {
 
 module "ADD_Groups" {
   source = "./Modules/AAD_Groups"
+  client_secret = var.client_secret
+  rg_name = var.rg_name
 }
 
 module "RBAC" {
   source = "./Modules/RBAC"
+  client_secret = var.client_secret
+  rg_name = var.rg_name
 }
