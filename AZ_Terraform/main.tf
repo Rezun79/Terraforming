@@ -1,4 +1,4 @@
-resource "azurerm_resource_group" "rezcorprg001" {
+resource "azurerm_resource_group" "rg1" {
     name = var.rg_name
     location = "westeurope"
 }
