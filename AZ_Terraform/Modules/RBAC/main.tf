@@ -3,17 +3,17 @@ data "azurerm_subscription" "rezcorp" {
 
 data "azuread_group" "aad_owner_group" {
   display_name = "aad_sbp_${local.rg_name}_owner"
-  depends_on = [module.AAD_Groups.azuread_group.aad_owner_group]
+  # depends_on = [module.AAD_Groups.azuread_group.aad_owner_group]
 }
 
 data "azuread_group" "aad_contributor_group" {
   display_name = "aad_sbp_${local.rg_name}_contributor"
-  depends_on = [module.AAD_Groups.azuread_group.aad_contributor_group]
+  # depends_on = [module.AAD_Groups.azuread_group.aad_contributor_group]
 }
 
 data "azuread_group" "aad_reader_group" {
   display_name = "aad_sbp_${local.rg_name}_reader"
-  depends_on = [module.AAD_Groups.azuread_group.aad_reader_group]
+  # depends_on = [module.AAD_Groups.azuread_group.aad_reader_group]
 }
 
 
