@@ -1,7 +1,7 @@
-module "aad_groups" {
-  source = "./Modules/AAD_Groups"
-  rg_name = var.rg_name
-}
+# module "aad_groups" {
+#   source = "./Modules/AAD_Groups"
+#   rg_name = var.rg_name
+# }
 
 module "rbac" {
   source = "./Modules/RBAC"
