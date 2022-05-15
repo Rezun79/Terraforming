@@ -22,6 +22,13 @@ resource "azuread_group" "aad_network_contributor_group" {
   security_enabled = true
 }
 
+resource "azuread_group" "aad_network_dnsone_operator_group" {
+  display_name     = "aad_sbp_${local.rg_name}_network_dnsone_operator"
+  description = "Managed by IDM;Network_contributor permission to ${local.rg_name}"
+  security_enabled = true
+}
+
+
 resource "azurerm_role_assignment" "rg_owner" {
   scope                = "/subscriptions/${local.subscription_id}/resourceGroups/${local.rg_name}"
   role_definition_name = "Owner"
@@ -44,4 +51,11 @@ resource "azurerm_role_assignment" "network_contributor" {
   scope                = "/subscriptions/${local.subscription_id}/resourceGroups/${var.rg_name}"
   role_definition_name = "Network Contributor"
   principal_id         = azuread_group.aad_network_contributor_group.id
+}
+
+
+resource "azurerm_role_assignment" "network_dnszone_operator" {
+  scope                = "/subscriptions/${local.subscription_id}/resourceGroups/${var.rg_name}"
+  role_definition_name = "Network DNSZone Operator"
+  principal_id         = azuread_group.aad_network_dnsone_operator_group.id
 }
