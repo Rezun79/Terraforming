@@ -1,4 +1,4 @@
-resource "azurerm_role_definition" "example" {
+resource "azurerm_role_definition" "network_dnszone_operator" {
   name        = "Network DNSZone Operator"
   scope       = "/subscriptions/${local.subscription_id}"
   description = "This is a custom test role"

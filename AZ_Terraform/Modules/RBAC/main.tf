@@ -58,4 +58,5 @@ resource "azurerm_role_assignment" "network_dnszone_operator" {
   scope                = "/subscriptions/${local.subscription_id}/resourceGroups/${var.rg_name}"
   role_definition_name = "Network DNSZone Operator"
   principal_id         = azuread_group.aad_network_dnsone_operator_group.id
+  depends_on = [azurerm_role_definition.network_dnszone_operator]
 }
