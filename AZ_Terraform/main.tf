@@ -3,11 +3,10 @@ module "aad_groups" {
   rg_name = var.rg_name
 }
 
-# module "rbac" {
-#   source = "./Modules/rbac"
-#   client_secret = var.client_secret
-#   rg_name = var.rg_name
-# }
+module "rbac" {
+  source = "./Modules/RBAC"
+  rg_name = var.rg_name
+}
 
 module "rg" {
   source = "./Modules/rg"
