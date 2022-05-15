@@ -1,5 +1,5 @@
 module "aad_groups" {
-  source = "./Modules/aad_groups"
+  source = "./Modules/AAD_Groups"
   rg_name = var.rg_name
 }
 
