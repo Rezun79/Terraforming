@@ -12,6 +12,5 @@
 
 module "rg" {
   source = "./Modules/rg"
-  client_secret = var.client_secret
-  rg_name = var.rg_name
+  rg_name = "test1234"
 }

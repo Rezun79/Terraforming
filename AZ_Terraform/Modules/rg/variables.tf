@@ -1,6 +1,6 @@
-variable "client_secret" {
+# variable "client_secret" {
 
-}
+# }
 
 variable "rg_name" {
 
