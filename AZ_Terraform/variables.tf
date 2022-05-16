@@ -22,3 +22,11 @@ variable "tenant_id" {
   type = string
   default = null
 }
+
+variable "key_vault_name" {
+  
+}
+
+variable "secret_name" {
+  
+}
