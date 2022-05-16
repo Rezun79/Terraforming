@@ -1,24 +1,24 @@
 variable "client_secret" {
   type = string
-  default = ""
+  default = null
 }
 
 variable "rg_name" {
   type = string
-  default = ""
+  default = null
 }
 
 variable "subscription_id" {
   type = string
-  default = ""
+  default = null
 }
 
 variable "client_id" {
   type = string
-  default = ""
+  default = null
 }
 
 variable "tenant_id" {
   type = string
-  default = ""
+  default = null
 }
