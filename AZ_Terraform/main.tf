@@ -10,7 +10,7 @@ module "rg" {
 }
 
 module "kayvault" {
-  source = "git::https://github.com/Rezun79/tf_kayvault_mod.git"
+  source = "git::https://github.com/Rezun79/tf_keyvault_mod.git"
   rg_name = var.rg_name
   key_vault_name = var.key_vault_name
   secret_name = var.secret_name
