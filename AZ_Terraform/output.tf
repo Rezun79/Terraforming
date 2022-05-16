@@ -1,4 +1,5 @@
-output "topsecret_value" {
-  value = module.kayvault.secret_value
+test = module.kayvault.secret_value
+output "test" {
+  value = var.test
   sensitive = false
 }
