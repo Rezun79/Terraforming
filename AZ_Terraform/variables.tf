@@ -24,13 +24,16 @@ variable "tenant_id" {
 }
 
 variable "key_vault_name" {
-  
+  type = string
+  default = null
 }
 
 variable "secret_name" {
-  
+  type = string
+  default = null
 }
 
 variable "key_vault_rg_name" {
-  
+  type = string
+  default = null
 }
