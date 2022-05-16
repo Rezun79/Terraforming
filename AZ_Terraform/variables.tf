@@ -37,8 +37,3 @@ variable "key_vault_rg_name" {
   type = string
   default = null
 }
-
-variable "test" {
-  type = string
-  default = null
-}
