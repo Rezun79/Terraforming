@@ -18,4 +18,6 @@ module "kayvault" {
 
 module "spn" {
   source = "git::https://github.com/Rezun79/tf_mod_spn.git"
+  key_vault_name = var.key_vault_name
+  key_vault_rg_name = var.key_vault_rg_name
 }
