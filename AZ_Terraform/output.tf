@@ -1,4 +1,4 @@
-output "test" {
-  value = module.kayvault.secret_value
-  sensitive = true
-}
+# output "test" {
+#   value = module.kayvault.secret_value
+#   sensitive = true
+# }

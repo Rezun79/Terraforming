@@ -37,3 +37,13 @@ variable "key_vault_rg_name" {
   type = string
   default = null
 }
+
+variable "platform_rg" {
+  type = string
+  default = null
+}
+
+variable "platform_keyvault" {
+  type = string
+  default = null
+}
