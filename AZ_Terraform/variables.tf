@@ -23,6 +23,29 @@ variable "tenant_id" {
   default = null
 }
 
+variable "tfc_token" {
+  type = string
+  default = null
+}
+
+variable "tfc_organization_name" {
+  type = string
+  default = null
+}
+
+variable "tfc_github_oauth_token_id" {
+  
+}
+
+variable "github_token" {
+  type = string
+  default = null
+}
+variable "github_organization" {
+  type = string
+  default = null
+}
+
 variable "key_vault_name" {
   type = string
   default = null
