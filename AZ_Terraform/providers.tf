@@ -8,11 +8,11 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "~> 2.89.0"
     }
-        github = {
+    github = {
       source = "integrations/github"
       version = "4.26.0"
     }
-        tfe = {
+    tfe = {
       source = "hashicorp/tfe"
       version = "0.31.0"
     }
