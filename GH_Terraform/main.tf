@@ -1,5 +1,11 @@
-resource "github_repository" "Az_RG" {
+resource "github_repository" "AZ_RG" {
   name        = "RG1"
   description = "Repo for RG1 code"
+  visibility = "public"
+}
+
+resource "github_repository" "AZ_RG2" {
+  name        = "RG2"
+  description = "Repo for RG2 code"
   visibility = "public"
 }
