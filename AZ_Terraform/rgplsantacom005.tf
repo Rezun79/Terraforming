@@ -55,6 +55,7 @@ module "github_rgplsantacom005" {
 
 module "tfc_rgplsantacom005" {
   source = "git::https://github.com/Rezun79/tf_mod_tfc.git"
+  rg_name = "rgplsantacom005"
   tfc_organization_name = var.tfc_organization_name
   github_organization = var.github_organization
   tfc_github_oauth_token_id = var.tfc_github_oauth_token_id
