@@ -61,7 +61,8 @@ module "tfc_rgplsantacom005" {
   tfc_github_oauth_token_id = var.tfc_github_oauth_token_id
   secret = module.spn_rgplsantacom005.secret
   depends_on = [
-    module.spn_rgplsantacom005
+    module.spn_rgplsantacom005,
+    module.github_rgplsantacom005
   ]
 }
 
