@@ -70,3 +70,8 @@ variable "platform_keyvault" {
   type = string
   default = null
 }
+
+variable "spn_client_id" {
+  type = string
+  default = null
+}
