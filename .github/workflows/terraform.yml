@@ -28,12 +28,15 @@ jobs:
       # uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1
         uses: hashicorp/setup-terraform@v2.0.3
       
-      - name: checkout-dirs
-        # You may pin to the exact commit or the version.
-        # uses: sergeidyga/checkout-dirs@1a0fce87e678ad4950aa0cac5c2a97a4d0397fa9
-        uses: sergeidyga/checkout-dirs@v1
-        with:
-          dirs: AZ_Terraform
+      - name: chkdir
+        uses: cd ./AZ_Terraform/
+
+      # - name: checkout-dirs
+      #   # You may pin to the exact commit or the version.
+      #   # uses: sergeidyga/checkout-dirs@1a0fce87e678ad4950aa0cac5c2a97a4d0397fa9
+      #   uses: sergeidyga/checkout-dirs@v1
+      #   with:
+      #     dirs: AZ_Terraform
       
       - name: Terraform init
         run: terraform init
