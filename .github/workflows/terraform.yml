@@ -34,12 +34,13 @@ jobs:
       
       - name: chkdir
         run: cd AZ_Terraform/
-
       
       - name: Dir
+        working-directory: ./AZ_Terraform
         run: dir
       
       - name: Terraform init
+        working-directory: ./AZ_Terraform
         run: terraform init
 
 #       # Runs a set of commands using the runners shell
