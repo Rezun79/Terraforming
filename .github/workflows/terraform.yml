@@ -23,8 +23,9 @@ jobs:
     
       - name: HashiCorp - Setup Terraform
         uses: hashicorp/setup-terraform@v2.0.3
-  
+
   terraform_init_validate:
+    needs: terraform_setup
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
