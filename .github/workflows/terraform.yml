@@ -33,7 +33,7 @@ jobs:
         run: dir
       
       - name: chkdir
-        run: cd AZ_Terraform
+        run: cd AZ_Terraform/
 
       
       - name: Dir
