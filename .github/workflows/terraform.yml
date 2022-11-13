@@ -16,7 +16,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
+  terraform_init_validate:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     
@@ -24,8 +24,6 @@ jobs:
     steps:
     
       - name: HashiCorp - Setup Terraform
-      # You may pin to the exact commit or the version.
-      # uses: hashicorp/setup-terraform@633666f66e0061ca3b725c73b2ec20cd13a8fdd1
         uses: hashicorp/setup-terraform@v2.0.3
       
       #Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -37,21 +35,12 @@ jobs:
       - name: chkdir
         run: cd AZ_Terraform
 
-      # - name: checkout-dirs
-      #   # You may pin to the exact commit or the version.
-      #   # uses: sergeidyga/checkout-dirs@1a0fce87e678ad4950aa0cac5c2a97a4d0397fa9
-      #   uses: sergeidyga/checkout-dirs@v1
-      #   with:
-      #     dirs: AZ_Terraform
+      
+      - name: Dir
+        run: dir
       
       - name: Terraform init
         run: terraform init
-        
-
-
-#       # Runs a single command using the runners shell
-#       - name: Run a one-line script
-#         run: echo Hello, world!
 
 #       # Runs a set of commands using the runners shell
 #       - name: Run a multi-line script
