@@ -35,6 +35,7 @@ jobs:
               else
               {
                   Write-Host 'jest zle' -ForegroundColor Red
+                  exit 1
               }
           }
 
@@ -48,6 +49,7 @@ jobs:
              if (($other_module).count -gt 0)
              {
                  Write-Host 'Wykryto deklaracje innych modulow'
+                 exit 1
              }
              else
              {
