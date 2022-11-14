@@ -1,0 +1,13 @@
+module "module-lwk-sm_testlw" {
+  source  = "git::github.com/rezun79/module-lwk-sm/"
+
+  //DATA
+
+  //LWK
+
+  //TAGGING VARIABLES
+
+
+  //NAMING VARIABLES  
+
+}
