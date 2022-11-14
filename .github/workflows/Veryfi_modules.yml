@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  Verifying_TF_Files:
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -28,7 +28,7 @@ jobs:
               Write-Host "Przeszukuje plik: $module_file"
               $tf_module = Get-Content $module_file | Select-String -Pattern '"(module-\w+-\w+_\w+)"' | foreach {$_.Matches.Groups[1].Value}
 
-              $module_file.BaseName
+              $module_file.Name
 
               if ($tf_module -eq $module_file.BaseName)
               {
@@ -46,7 +46,7 @@ jobs:
           {
               $other_module = Get-Content $other_file | Select-String -Pattern 'module'
 
-              $other_file.BaseName
+              $other_file.Name
 
              if (($other_module).count -gt 0)
              {
