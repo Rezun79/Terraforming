@@ -21,17 +21,17 @@ jobs:
           get-location
           Set-Location ./AZ_Terraform/
           
-          $module_files = Get-ChildItem -Filter module*
+          $module_files = Get-ChildItem -Filter module*.tf
 
           foreach ($module_file in $module_files)
           {
               Write-Host "Przeszukuje plik: $module_file"
-              $module_name = Get-Content $module_file | Select-String -Pattern '"(module-\w+-\w+_\w+)"' | foreach {$_.Matches.Groups[1].Value}
+              $tf_module = Get-Content $module_file | Select-String -Pattern '"(module-\w+-\w+_\w+)"' | foreach {$_.Matches.Groups[1].Value}
 
               $module_file.BaseName
-              $module_name
+              $tf_module
 
-              if ($module_name -eq $module_file.BaseName)
+              if ($tf_module -eq $module_file.BaseName)
               {
                   Write-Host 'jest OK' -ForegroundColor Green
               }
@@ -40,4 +40,24 @@ jobs:
                   Write-Host 'jest zle' -ForegroundColor Red
               }
           }
+
+          $other_files = Get-ChildItem | where {($_.name -NotLike 'module*.tf') -and ($_.PSIsContainer -eq $False)}
+
+          foreach ($other_file in $other_files)
+          {
+              $other_module = Get-Content $other_file | Select-String -Pattern 'module'
+
+              $other_file.BaseName
+              $other_module
+
+             if (($other_module).count -gt 0)
+             {
+                 Write-Host 'Wykryto deklaracje innych modulow'
+             }
+             else
+             {
+                 Write-Host 'Jest OK'
+             }
+          }
+
         shell: pwsh 
