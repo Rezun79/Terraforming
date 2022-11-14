@@ -29,7 +29,6 @@ jobs:
               $tf_module = Get-Content $module_file | Select-String -Pattern '"(module-\w+-\w+_\w+)"' | foreach {$_.Matches.Groups[1].Value}
 
               $module_file.BaseName
-              $tf_module
 
               if ($tf_module -eq $module_file.BaseName)
               {
@@ -48,7 +47,6 @@ jobs:
               $other_module = Get-Content $other_file | Select-String -Pattern 'module'
 
               $other_file.BaseName
-              $other_module
 
              if (($other_module).count -gt 0)
              {
