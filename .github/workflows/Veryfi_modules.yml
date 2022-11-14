@@ -28,8 +28,6 @@ jobs:
               Write-Host "Przeszukuje plik: $module_file"
               $tf_module = Get-Content $module_file | Select-String -Pattern '"(module-\w+-\w+_\w+)"' | foreach {$_.Matches.Groups[1].Value}
 
-              $module_file.Name
-
               if ($tf_module -eq $module_file.BaseName)
               {
                   Write-Host 'jest OK' -ForegroundColor Green
@@ -44,9 +42,8 @@ jobs:
 
           foreach ($other_file in $other_files)
           {
+              Write-Host "Przeszukuje plik: $other_file"
               $other_module = Get-Content $other_file | Select-String -Pattern 'module'
-
-              $other_file.Name
 
              if (($other_module).count -gt 0)
              {
