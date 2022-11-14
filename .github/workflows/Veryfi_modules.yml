@@ -22,12 +22,10 @@ jobs:
           Set-Location ./AZ_Terraform/
           
           $module_files = Get-ChildItem -Filter module*.tf
-
           foreach ($module_file in $module_files)
           {
               Write-Host "Przeszukuje plik: $module_file"
               $tf_module = Get-Content $module_file | Select-String -Pattern '"(module-\w+-\w+_\w+)"' | foreach {$_.Matches.Groups[1].Value}
-
               if ($tf_module -eq $module_file.BaseName)
               {
                   Write-Host 'jest OK' -ForegroundColor Green
@@ -35,26 +33,28 @@ jobs:
               else
               {
                   Write-Host 'jest zle' -ForegroundColor Red
-                  exit 1
+                  Write-Host "Nazwa modulu $tf_module nie jest zgodna z nazwą pliku $module_file"
+                  $exitcode = 1
               }
           }
-
-          $other_files = Get-ChildItem | where {($_.name -NotLike 'module*.tf') -and ($_.PSIsContainer -eq $False)}
-
+          $other_files = Get-ChildItem -Filter *.tf | where {($_.name -NotLike 'module*.tf') -and ($_.PSIsContainer -eq $False)}
           foreach ($other_file in $other_files)
           {
               Write-Host "Przeszukuje plik: $other_file"
               $other_module = Get-Content $other_file | Select-String -Pattern 'module'
-
              if (($other_module).count -gt 0)
              {
-                 Write-Host 'Wykryto deklaracje innych modulow'
-                 exit 1
+                 Write-Host "Wykryto deklaracje innych modulow w pliku $other_file"
+                 $exitcode = 1
              }
              else
              {
                  Write-Host 'Jest OK'
              }
+          }
+          if ($exitcode -eq 1)
+          {
+            exit 1
           }
 
         shell: pwsh 
