@@ -49,4 +49,21 @@ jobs:
           # Mandatory. Takes full identifier for one or more azure resources, resource groups or subscriptions. The on-demand policy compliance scan is triggered for all of these. The ID can generally be found in the properties section of the resource in Azure Portal.
           scopes: |
             /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-    
+            
+            - name: Azure PowerShell Action
+      - name: Azure PS Test
+        uses: Azure/powershell@v1.2.0
+        with:
+          # Specify the Az PowerShell script here.
+          inlineScript: |
+            Get-AZ....
+          # Azure PS version to be used to execute the script, example: 1.8.0, 2.8.0, 3.4.0. To use the latest version, specify "latest".
+          azPSVersion: latest
+      - name: Azure Logout
+        uses: Azure/powershell@v1.2.0
+        with:
+          # Specify the Az PowerShell script here.
+          inlineScript: |
+            Get-AZLogout
+          # Azure PS version to be used to execute the script, example: 1.8.0, 2.8.0, 3.4.0. To use the latest version, specify "latest".
+          azPSVersion: latest
